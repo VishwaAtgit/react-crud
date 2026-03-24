@@ -21,3 +21,52 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# ── Secrets & credentials ──────────────────────────────────
+
+# Environment files (all variants)
+.env
+.env.*
+!.env.example
+
+# AWS
+.aws/
+aws-exports.js
+
+# SSH / GPG
+*.pem
+*.key
+*.p12
+*.pfx
+*.asc
+
+# API keys / tokens dumped to file
+*secret*
+*credentials*
+*token*.json
+.npmrc
+.yarnrc.yml
+
+# Firebase
+firebase-debug.log
+.firebaserc
+serviceAccountKey.json
+
+# IDE secrets
+.idea/dataSources/
+.vscode/*.env
+
+# Terraform / infra state (may contain secrets)
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Docker env overrides
+docker-compose.override.yml
+
+# macOS metadata
+._*
+Thumbs.db
+
+# Logs that may contain tokens
+*.log

@@ -1,0 +1,25 @@
+{
+    "extends": ["react-app", "react-app/jest"],
+    "rules": {
+      "no-console": "off"
+    },
+    "overrides": [
+      {
+        "files": ["src/utils/**/*.js", "src/features/**/*.js", "src/features/**/*.jsx"],
+        "rules": {
+          "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+          "no-shadow": "error",
+          "eqeqeq": ["error", "always"],
+          "no-var": "error",
+          "prefer-const": "error",
+          "no-console": "off",
+          "curly": ["error", "all"],
+          "no-implicit-coercion": "error",
+          "no-param-reassign": ["error", {
+            "props": true,
+            "ignorePropertyModificationsFor": ["state"]
+          }]
+        }
+      }
+    ]
+  }

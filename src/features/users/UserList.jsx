@@ -47,7 +47,7 @@ export function UserList() {
               </tr>
             </thead>
             <tbody>
-              {entities.length &&
+              {entities.length > 0 &&
                 entities.map(({ id, name, email }, i) => (
                   <tr key={i}>
                     <td>{id}</td>
@@ -68,3 +68,5 @@ export function UserList() {
     </div>
   );
 }
+
+export default UserList

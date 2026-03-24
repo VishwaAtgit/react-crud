@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import React from "react";
 import ReactDOM from "react-dom";
 import { fetchUsers } from "./features/users/usersSlice";
-import store from "./store";
+import store from "src/store.js";
 
 store.dispatch(fetchUsers());
 

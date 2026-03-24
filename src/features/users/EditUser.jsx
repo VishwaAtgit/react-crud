@@ -9,7 +9,7 @@ export function EditUser() {
   const userId = parseInt(pathname.replace("/edit-user/", ""));
 
   const user = useSelector((state) =>
-    state.users.entities.find((user) => user.id === userId)
+    state.users.entities.find((u) => u.id === userId)
   );
 
   const dispatch = useDispatch();
