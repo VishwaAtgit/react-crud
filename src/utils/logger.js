@@ -31,8 +31,10 @@ export function logger(op) {
   let startTime = null;
 
   const entry = (status, detail = {}) => {
-    if (SILENT) return;
-
+    if (SILENT) {
+        return;
+    }
+    
     const record = {
       ts: new Date().toISOString(),
       op,
