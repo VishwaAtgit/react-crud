@@ -1,46 +1,61 @@
-# Build and Test Instructions
+# Build & Test Guide — react-crud
 
-## Environment Setup
-To set up the environment for building and testing the project, follow these steps:
+> Last updated: 2026-03-24
 
-1. **Clone the Repository**
-   ```bash
-   git clone <repository-url>
-   cd <repository-directory>
-   ```
+## Prerequisites
 
-2. **Install Dependencies**
-   Ensure you have the necessary dependencies installed. You can do this by running:
-   ```bash
-   npm install
-   ```
+- Node.js ≥ 14 (LTS recommended)
+- npm ≥ 6
 
-3. **Configuration**
-   If there are any configuration files required, make sure to set them up according to the project's requirements.
+## Install
 
-## Building the Project
-To build the project, use the following command:
+```bash
+npm install
+```
+
+## Dev Server
+
+```bash
+npm start
+# Opens http://localhost:3000
+```
+
+## Production Build
+
 ```bash
 npm run build
+# Output: build/
 ```
 
-This will compile the source code and prepare it for deployment.
+## Tests
 
-## Running Tests
-To run the tests, execute:
+| Command | Behaviour |
+|---|---|
+| `npm test` | Jest in watch mode (interactive) |
+| `CI=true npm test` | Single run, non-interactive (CI) |
+| `CI=true npm test -- --coverage` | Single run + coverage report |
+
+## Verify the New Unit Test
+
 ```bash
-npm test
+CI=true npm test -- --verbose 2>&1 | grep -E '(PASS|FAIL|✓|✕)'
 ```
 
-This command will run all the unit tests and provide a report on the results.
+Expected output:
 
-## Additional Testing Options
-You can also run tests with coverage by using:
-```bash
-npm test -- --coverage
+```
+PASS  src/App.test.js
+  ✓ renders without crashing (smoke)
+  ✓ renders a heading or identifiable text node
 ```
 
-This will generate a coverage report to help you understand how much of your code is tested.
+## Assumptions
 
-## Troubleshooting
-If you encounter any issues during the build or testing process, please refer to the troubleshooting section in the main README or consult the documentation for the specific tools being used.
+| Assumption | Verify with |
+|---|---|
+| CRA default test setup (Jest + RTL) | `grep react-scripts package.json` |
+| `<App />` renders an `<h1>` | `grep -rn '<h1' src/App.js` |
+| No custom test config overrides | `ls jest.config.* .babelrc babel.config.* 2>/dev/null` |
+
+If the `<h1>` assertion fails, inspect `src/App.js` for the actual top-level
+element and adjust the `getByRole` query accordingly.
