@@ -1,7 +1,15 @@
 {
     "extends": ["react-app", "react-app/jest"],
     "rules": {
-      "no-console": "off"
+      "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+      "no-console": ["warn", { "allow": ["warn", "error", "table", "log"] }],
+      "no-debugger": "error",
+      "no-eval": "error",
+      "no-implied-eval": "error",
+      "no-new-func": "error",
+      "no-script-url": "error",
+      "react/jsx-no-target-blank": "error",
+      "react/no-danger": "warn"
     },
     "overrides": [
       {

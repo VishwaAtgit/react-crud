@@ -1,0 +1,20 @@
+{
+  "singleUser": {
+    "id": 1,
+    "name": "Alice",
+    "email": "alice@example.com"
+  },
+  "userList": [
+    { "id": 1, "name": "Alice", "email": "alice@example.com" },
+    { "id": 2, "name": "Bob", "email": "bob@example.com" }
+  ],
+  "createRequest": {
+    "name": "Charlie",
+    "email": "charlie@example.com"
+  },
+  "updateRequest": {
+    "id": 1,
+    "name": "Alice Updated",
+    "email": "alice.updated@example.com"
+  }
+}

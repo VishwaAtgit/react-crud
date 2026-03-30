@@ -61,19 +61,22 @@ describe('fetchWithRetry', () => {
   test('throws NETWORK_ERROR after exhausting retries', async () => {
     global.fetch = jest.fn().mockRejectedValue(new Error('ECONNREFUSED'));
 
+    let thrownError;
     try {
       await fetchWithRetry('https://example.com/api', {
         retries: 1,          // 2 total attempts
         backoffBase: 10,
       });
-      fail('should have thrown');
+      // If we reach here, the function didn't throw as expected
+      throw new Error('fetchWithRetry should have thrown but did not');
     } catch (err) {
-      expect(err).toBeInstanceOf(FetchError);
-      expect(err.code).toBe('NETWORK_ERROR');
-      expect(err.attempts).toBe(2);
-      expect(err.message).toContain('ECONNREFUSED');
+      thrownError = err;
     }
 
+    expect(thrownError).toBeInstanceOf(FetchError);
+    expect(thrownError.code).toBe('NETWORK_ERROR');
+    expect(thrownError.attempts).toBe(2);
+    expect(thrownError.message).toContain('ECONNREFUSED');
     expect(global.fetch).toHaveBeenCalledTimes(2);
   });
 
@@ -93,19 +96,22 @@ describe('fetchWithRetry', () => {
       });
     });
 
+    let thrownError;
     try {
       await fetchWithRetry('https://example.com/slow', {
         timeout: 50,         // 50ms timeout
         retries: 0,          // no retries — fail fast
         backoffBase: 10,
       });
-      fail('should have thrown');
+      throw new Error('fetchWithRetry should have thrown but did not');
     } catch (err) {
-      expect(err).toBeInstanceOf(FetchError);
-      expect(err.code).toBe('TIMEOUT');
-      expect(err.attempts).toBe(1);
-      expect(err.message).toContain('timed out');
+      thrownError = err;
     }
+
+    expect(thrownError).toBeInstanceOf(FetchError);
+    expect(thrownError.code).toBe('TIMEOUT');
+    expect(thrownError.attempts).toBe(1);
+    expect(thrownError.message).toContain('timed out');
   });
 
   // ── Failure: HTTP error ──────────────────────────────
@@ -117,17 +123,20 @@ describe('fetchWithRetry', () => {
       statusText: 'Service Unavailable',
     });
 
+    let thrownError;
     try {
       await fetchWithRetry('https://example.com/api', {
         retries: 1,
         backoffBase: 10,
       });
-      fail('should have thrown');
+      throw new Error('fetchWithRetry should have thrown but did not');
     } catch (err) {
-      expect(err).toBeInstanceOf(FetchError);
-      expect(err.code).toBe('HTTP_ERROR');
-      expect(err.message).toContain('503');
+      thrownError = err;
     }
+
+    expect(thrownError).toBeInstanceOf(FetchError);
+    expect(thrownError.code).toBe('HTTP_ERROR');
+    expect(thrownError.message).toContain('503');
   });
 
   // ── FetchError shape ─────────────────────────────────
