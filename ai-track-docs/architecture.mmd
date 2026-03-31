@@ -1,0 +1,51 @@
+graph TD
+
+  subgraph Browser
+    HTML["public/index.html<br/>(static shell)"]
+    INDEX["src/index.js<br/>(bootstrap, mounts App)"]
+    APP["src/App.js<br/>(Router + Switch)"]
+  end
+
+  subgraph Pages
+    UL["src/features/users/UserList.jsx"]
+    AU["src/features/users/AddUser.jsx"]
+    EU["src/features/users/EditUser.jsx"]
+  end
+
+  subgraph State
+    STORE["src/store.js<br/>(configureStore)"]
+    SLICE["src/features/users/usersSlice.js<br/>(reducers + extraReducers)"]
+  end
+
+  subgraph Utilities
+    FETCH["src/utils/fetchWithRetry.js<br/>(timeout, retry, backoff)"]
+    LOG["src/utils/logger.js<br/>(structured JSON logs)"]
+  end
+
+  API["JSONPlaceholder API<br/>jsonplaceholder.typicode.com/users"]
+
+  HTML -->|"serves div#root"| INDEX
+  INDEX -->|"renders Provider + App"| APP
+  APP -->|"route /"| UL
+  APP -->|"route /add-user"| AU
+  APP -->|"route /edit-user/:id"| EU
+
+  UL -->|"dispatch fetchUsers"| SLICE
+  SLICE -->|"async thunk"| FETCH
+  FETCH -->|"GET /users with retry"| API
+  API -->|"JSON response"| FETCH
+  FETCH -->|"response"| SLICE
+  SLICE -->|"entities updated"| STORE
+  STORE -->|"useSelector re-render"| UL
+
+  AU -->|"dispatch userAdded"| SLICE
+  SLICE -->|"push to entities"| STORE
+  STORE -->|"useSelector re-render"| UL
+
+  UL -->|"dispatch userDeleted"| SLICE
+
+  SLICE -.->|"structured logs"| LOG
+  FETCH -.->|"FetchError logging"| LOG
+
+  classDef external fill:#fdf6e3,stroke:#b58900,color:#657b83
+  class API external

@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-redux": "7.2.9",
+    "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
@@ -24,9 +24,7 @@
     "lint:fix": "eslint src/ --ext .js,.jsx --max-warnings 0 --fix",
     "lint:strict": "eslint src/utils/ src/features/ --ext .js,.jsx --max-warnings 0",
     "validate:diagram": "npx -y @mermaid-js/mermaid-cli -i ai-track-docs/architecture.mmd -o ai-track-docs/architecture.svg && echo '✅ Architecture diagram rendered successfully'",
-    "test:coverage": "react-scripts test --coverage --watchAll=false",
-    "scan": "bash scripts/scan.sh",
-    "scan:fix": "bash scripts/scan.sh --fix"
+    "test:coverage": "react-scripts test --coverage --watchAll=false"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -60,12 +58,17 @@
     "@babel/preset-env": "^7.29.2",
     "@babel/preset-react": "^7.28.5",
     "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react-hooks": "^8.0.1",
-    "@types/jest": "^30.0.0",
-    "@types/node": "^14.18.63",
     "zod": "^4.3.6"
   },
-  "overrides": {
-    "undici-types": "npm:@types/node@14.18.63"
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "7.2.9",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
+    "web-vitals": "^0.2.4"
   }
 }

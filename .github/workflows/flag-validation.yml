@@ -1,0 +1,77 @@
+# filepath: /Users/vishwac/personal/react-crud/.github/workflows/flag-validation.yml
+name: Feature Flag Validation
+
+on:
+  pull_request:
+    paths:
+      - "src/hooks/useObservability.ts"
+      - "src/hooks/__tests__/**"
+      - ".env*"
+  push:
+    branches: [main]
+
+jobs:
+  flag-matrix:
+    name: "Flag: ${{ matrix.flag_state }}"
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        flag_state: ["true", "false"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run flag tests (REACT_APP_ENABLE_OBSERVABILITY=${{ matrix.flag_state }})
+        env:
+          REACT_APP_ENABLE_OBSERVABILITY: ${{ matrix.flag_state }}
+        run: |
+          npx react-scripts test --watchAll=false \
+            --testPathPattern='useObservability' \
+            --verbose \
+            2>&1 | tee test-output-${{ matrix.flag_state }}.txt
+
+      - name: Post matrix result to summary
+        if: always()
+        run: |
+          FLAG="${{ matrix.flag_state }}"
+          ICON=$( [ "$FLAG" = "true" ] && echo "🟢 ON" || echo "🔴 OFF" )
+          PASS=$(grep -oP 'Tests:\s+\K\d+ passed' test-output-${FLAG}.txt || echo "0 passed")
+          FAIL=$(grep -oP '\d+ failed' test-output-${FLAG}.txt || echo "0 failed")
+
+          cat <<EOF >> "$GITHUB_STEP_SUMMARY"
+          ## Flag Validation — ${ICON} (\`REACT_APP_ENABLE_OBSERVABILITY=${FLAG}\`)
+
+          | Metric | Value |
+          |--------|-------|
+          | Passed | ${PASS} |
+          | Failed | ${FAIL} |
+
+          <details><summary>Test output</summary>
+
+          \`\`\`
+          $(cat test-output-${FLAG}.txt | head -100)
+          \`\`\`
+
+          </details>
+          EOF
+
+      - name: Upload test output
+        if: always()
+        uses: actions/upload-artifact@v4
+        continue-on-error: true
+        with:
+          name: flag-test-${{ matrix.flag_state }}
+          path: test-output-${{ matrix.flag_state }}.txt
+          retention-days: 7

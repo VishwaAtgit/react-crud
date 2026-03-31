@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { AddUser } from "./features/users/AddUser";
 import { EditUser } from "./features/users/EditUser";
 import React from "react";
-import { UserList } from "./features/users/UserList";
+import UserList from "./features/users/UserList";
 
 export default function App() {
   return (
