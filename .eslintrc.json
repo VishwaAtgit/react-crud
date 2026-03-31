@@ -1,33 +1,93 @@
 {
-    "extends": ["react-app", "react-app/jest"],
-    "rules": {
-      "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-      "no-console": ["warn", { "allow": ["warn", "error", "table", "log"] }],
-      "no-debugger": "error",
-      "no-eval": "error",
-      "no-implied-eval": "error",
-      "no-new-func": "error",
-      "no-script-url": "error",
-      "react/jsx-no-target-blank": "error",
-      "react/no-danger": "warn"
-    },
-    "overrides": [
-      {
-        "files": ["src/utils/**/*.js", "src/features/**/*.js", "src/features/**/*.jsx"],
-        "rules": {
-          "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-          "no-shadow": "error",
-          "eqeqeq": ["error", "always"],
-          "no-var": "error",
-          "prefer-const": "error",
-          "no-console": "off",
-          "curly": ["error", "all"],
-          "no-implicit-coercion": "error",
-          "no-param-reassign": ["error", {
-            "props": true,
-            "ignorePropertyModificationsFor": ["state"]
-          }]
-        }
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "react-app",
+    "react-app/jest"
+  ],
+  "rules": {
+    "curly": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "eqeqeq": ["error", "always"],
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+    "no-param-reassign": ["error", { "props": false }]
+  },
+  "overrides": [
+    {
+      "files": ["src/utils/**/*.js"],
+      "rules": {
+        "no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+        "no-shadow": "error",
+        "eqeqeq": ["error", "always"],
+        "prefer-const": "error",
+        "no-var": "error",
+        "no-throw-literal": "error",
+        "no-param-reassign": ["error", { "props": true }],
+        "consistent-return": "error",
+        "default-case": "error",
+        "no-fallthrough": "error",
+        "no-return-await": "error",
+        "no-implicit-coercion": "error",
+        "no-nested-ternary": "error",
+        "no-else-return": "error",
+        "curly": ["error", "all"],
+        "no-lonely-if": "error",
+        "prefer-template": "error",
+        "object-shorthand": ["error", "always"],
+        "no-useless-concat": "error",
+        "no-unneeded-ternary": "error"
       }
-    ]
-  }
+    },
+    {
+      "files": ["src/features/**/*.js", "src/features/**/*.jsx"],
+      "rules": {
+        "no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+        "no-shadow": "error",
+        "eqeqeq": ["error", "always"],
+        "prefer-const": "error",
+        "no-var": "error",
+        "no-throw-literal": "error",
+        "consistent-return": "error",
+        "curly": ["error", "all"],
+        "prefer-template": "error"
+      }
+    },
+    {
+      "files": ["src/services/**/*.js"],
+      "rules": {
+        "no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+        "no-shadow": "error",
+        "eqeqeq": ["error", "always"],
+        "prefer-const": "error",
+        "no-var": "error",
+        "consistent-return": "error",
+        "curly": ["error", "all"],
+        "prefer-template": "error"
+      }
+    },
+    {
+      "files": ["src/components/**/*.js", "src/components/**/*.jsx"],
+      "rules": {
+        "no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+        "eqeqeq": ["error", "always"],
+        "prefer-const": "error",
+        "no-var": "error",
+        "curly": ["error", "all"]
+      }
+    },
+    {
+      "files": ["src/**/*.test.js", "src/**/*.test.jsx", "src/__tests__/**/*.js"],
+      "rules": {
+        "no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+        "no-shadow": "off",
+        "consistent-return": "off",
+        "no-param-reassign": "off"
+      }
+    }
+  ]
+}

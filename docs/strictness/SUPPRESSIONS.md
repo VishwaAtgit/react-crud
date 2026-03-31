@@ -78,4 +78,25 @@ If you need to add a suppression, **increase the budget** in
 
 ---
 
+### `src/services/TutorialService.js` — `eqeqeq` (3 lines)
+
+```
+Scope:    Lines 27, 41, 48 — id null-guard
+Rule:     eqeqeq
+Reason:   `id == null` intentionally catches both null and undefined.
+          Using === would miss undefined, breaking the API guard.
+Reviewed: 2026-03-31
+```
+
+### `src/utils/fetchWithRetry.js` — `consistent-return`
+
+```
+Scope:    async function fetchWithRetry
+Rule:     consistent-return
+Reason:   The retry loop always either returns (success) or throws
+          (final attempt). The function has no reachable end-of-body,
+          but ESLint cannot prove this statically.
+Reviewed: 2026-03-31
+```
+
 _Last updated: 2026-03-31_

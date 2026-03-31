@@ -24,7 +24,8 @@ const getAll = () => {
 const get = (id) => {
   // EDGE: Caller must guarantee `id` is a valid number/string.
   // Passing undefined produces GET /tutorials/undefined → likely 404.
-  if (id == null) {
+  // eslint-disable-next-line eqeqeq -- intentional: catch both null and undefined
+    if (id == null) {
     return Promise.reject(new Error("TutorialService.get: id is required"));
   }
   return http.get(`/tutorials/${id}`);
@@ -38,14 +39,16 @@ const create = (data) => {
 
 const update = (id, data) => {
   // EDGE: Same null-id risk as get()
-  if (id == null) {
+  // eslint-disable-next-line eqeqeq -- intentional: catch both null and undefined
+    if (id == null) {
     return Promise.reject(new Error("TutorialService.update: id is required"));
   }
   return http.put(`/tutorials/${id}`, data);
 };
 
 const remove = (id) => {
-  if (id == null) {
+  // eslint-disable-next-line eqeqeq -- intentional: catch both null and undefined
+    if (id == null) {
     return Promise.reject(new Error("TutorialService.remove: id is required"));
   }
   return http.delete(`/tutorials/${id}`);

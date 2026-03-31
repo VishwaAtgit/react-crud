@@ -1,0 +1,2627 @@
+
+> redux-crud-tutorial@0.1.0 test
+> react-scripts test --watchAll=false --ci --forceExit
+
+FAIL src/__tests__/logger.test.js
+  ● createLogger › includes serialized meta when provided
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected substring: "42"
+    Received string:    "[2026-03-31T10:12:15.212Z] [INFO] [Meta] with meta"
+
+      43 |     log.info('with meta', { userId: 42 });
+      44 |     const full = spy.mock.calls[0].join(' ');
+    > 45 |     expect(full).toContain('42');
+         |                  ^
+      46 |   });
+      47 | });
+
+      at Object.<anonymous> (src/__tests__/logger.test.js:45:18)
+
+PASS src/features/architecture/generate-architecture.test.js
+  ● Console
+
+    console.log
+      ✅  Architecture diagram written to /var/folders/x5/4c9mhrh16k9g985snpfmj3vh0000gp/T/arch-test-RIyrBK/docs/architecture.md
+
+      at generate (scripts/generate-architecture.js:108:11)
+
+    console.log
+      ✅  Manifest written to /var/folders/x5/4c9mhrh16k9g985snpfmj3vh0000gp/T/arch-test-RIyrBK/docs/architecture-manifest.json
+
+      at generate (scripts/generate-architecture.js:109:11)
+
+PASS src/features/users/usersAPI.contract.test.js
+PASS src/utils/fetchWithRetry.test.js
+PASS src/utils/logger.test.js
+PASS src/store.test.js
+PASS src/__tests__/http-common.contract.test.js
+PASS src/__tests__/TutorialService.contract.test.js
+PASS src/features/users/usersAPI.test.js
+PASS src/features/users/StatusMesssage.test.js
+PASS src/__tests__/metrics.test.js
+  ● Console
+
+    console.debug
+      [2026-03-31T10:12:15.710Z] [DEBUG] [Metrics] counter++ test_counter
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.719Z] [DEBUG] [Metrics] counter++ test_counter
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.720Z] [DEBUG] [Metrics] counter++ test_counter
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.720Z] [DEBUG] [Metrics] counter++ api_calls
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.721Z] [DEBUG] [Metrics] counter++ api_calls
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.721Z] [DEBUG] [Metrics] gauge active_users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.721Z] [DEBUG] [Metrics] gauge active_users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.722Z] [DEBUG] [Metrics] timer response_ms
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.722Z] [DEBUG] [Metrics] counter++ c1
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.722Z] [DEBUG] [Metrics] gauge g1
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.722Z] [DEBUG] [Metrics] timer t1
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.723Z] [DEBUG] [Metrics] counter++ x
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.723Z] [DEBUG] [Metrics] gauge y
+
+      at emit (src/utils/logger.js:104:3)
+
+PASS src/features/users/usersSlice.test.js
+PASS src/features/users/UserRow.test.js
+PASS src/features/users/UserRow.perf.test.js
+  ● Console
+
+    console.log
+      BEFORE (no memo): 150 re-renders after 3 parent updates
+
+      at Object.<anonymous> (src/features/users/UserRow.perf.test.js:91:13)
+
+    console.log
+      AFTER (memo): 0 re-renders after 3 parent updates
+
+      at Object.<anonymous> (src/features/users/UserRow.perf.test.js:105:13)
+
+    console.log
+      ┌──────────────────────────────────────────┐
+
+      at Object.<anonymous> (src/features/users/UserRow.perf.test.js:136:13)
+
+    console.log
+      │  BEFORE (no memo):  150 re-renders          │
+
+      at Object.<anonymous> (src/features/users/UserRow.perf.test.js:137:13)
+
+    console.log
+      │  AFTER  (memo):     0 re-renders            │
+
+      at Object.<anonymous> (src/features/users/UserRow.perf.test.js:138:13)
+
+    console.log
+      │  Reduction:         100%                    │
+
+      at Object.<anonymous> (src/features/users/UserRow.perf.test.js:139:13)
+
+    console.log
+      └──────────────────────────────────────────┘
+
+      at Object.<anonymous> (src/features/users/UserRow.perf.test.js:140:13)
+
+PASS src/App.coverage.test.js
+  ● Console
+
+    console.debug
+      [2026-03-31T10:12:15.789Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.799Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.800Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.801Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.802Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.811Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.811Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.825Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.827Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.831Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.832Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.832Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.832Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.832Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.833Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.833Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.839Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.840Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.842Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.843Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.843Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.843Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.843Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.843Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.844Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.845Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.846Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.847Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.848Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.848Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.848Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.848Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.849Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.849Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.851Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.853Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.856Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.857Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.857Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.858Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.858Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.858Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.859Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.861Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.861Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.863Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.863Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.863Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.864Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.864Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.864Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.865Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.867Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.867Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+PASS src/App.test.js
+  ● Console
+
+    console.debug
+      [2026-03-31T10:12:15.789Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.799Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.800Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.801Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.802Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.810Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.811Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.824Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.824Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.828Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.829Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.829Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.829Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.829Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.830Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.830Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.832Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.832Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.834Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.834Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.834Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.834Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.834Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.835Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.835Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.836Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.836Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.838Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.838Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.838Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.838Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.838Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.839Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.839Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.840Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.841Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.843Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.846Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.846Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.846Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.847Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.847Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.847Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.849Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.849Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.851Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.851Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.851Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.852Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.852Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.852Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.853Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.854Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.855Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.856Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.856Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.857Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.857Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.857Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.858Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.858Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.860Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.860Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.862Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.867Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.867Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.867Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.868Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.868Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.868Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.870Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.870Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.871Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.872Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.872Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.872Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.872Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.872Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.873Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.876Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.876Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.878Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.878Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.878Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.878Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.878Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.878Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.879Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.880Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.880Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.881Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.882Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.882Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.882Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.882Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.882Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.883Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.884Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.884Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.885Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.885Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.885Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.885Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.887Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.887Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.887Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.888Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.889Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.889Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.890Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.890Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.890Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.890Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.890Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.890Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.891Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.891Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.892Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.892Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.892Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.893Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.893Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.893Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.893Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.894Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.894Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.895Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.897Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.897Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.897Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.897Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.897Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.897Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.898Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.898Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.899Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.899Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.900Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.900Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.900Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.900Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.900Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.901Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.901Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.902Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.902Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.902Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.902Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.903Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.903Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.903Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.904Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.904Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.905Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.905Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.905Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.905Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.905Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.905Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.905Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.906Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.906Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.907Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.907Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.908Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.908Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.908Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.908Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.909Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.909Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.910Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.910Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.910Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.911Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.911Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.911Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.911Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.911Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.912Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.912Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.913Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.913Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.913Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.913Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.913Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.914Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.914Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.914Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.915Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.915Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.915Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.916Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.916Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.916Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.916Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.916Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.917Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.917Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.918Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.918Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.918Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.918Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.919Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.919Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.919Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.920Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.920Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.log
+      ┌─────────────┬─────────┐
+      │ (index)     │ Values  │
+      ├─────────────┼─────────┤
+      │ iterations  │ 20      │
+      │ warmup      │ 3       │
+      │ mean (ms)   │ '3.452' │
+      │ median (ms) │ '2.741' │
+      │ min (ms)    │ '1.810' │
+      │ max (ms)    │ '8.436' │
+      │ stddev (ms) │ '1.854' │
+      └─────────────┴─────────┘
+
+      at Object.<anonymous> (src/App.test.js:88:13)
+
+    console.debug
+      [2026-03-31T10:12:15.924Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.924Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.924Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.924Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.924Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.924Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.925Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.925Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.925Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.926Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.926Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.926Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.927Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.927Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.927Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.927Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.928Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.928Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.929Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.929Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.929Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.929Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.929Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.929Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.930Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.930Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.930Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.931Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.931Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.931Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.932Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.932Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.933Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.933Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.933Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.934Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.934Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.934Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.935Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.935Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.935Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.935Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.935Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.936Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.936Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.937Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.937Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.937Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.937Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.937Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.937Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.938Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.938Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.938Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.939Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.939Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.939Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.939Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.940Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.940Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.940Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.941Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.941Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.941Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.941Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.942Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.942Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.942Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.942Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.943Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.943Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.944Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.944Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.945Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.945Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.945Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.945Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.945Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.945Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.946Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.946Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.947Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.947Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.947Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.947Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.948Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.948Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.948Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.949Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.949Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.949Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.950Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.950Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.950Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.950Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.950Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.950Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.951Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.951Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.952Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.952Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.952Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.952Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.952Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.953Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.953Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.954Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.954Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.955Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.955Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.956Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.956Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.956Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.956Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.956Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.957Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.957Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.958Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.958Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.959Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.959Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.959Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.959Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.959Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.960Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.960Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.961Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.961Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.961Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.961Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.961Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.961Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.961Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.962Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.962Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.963Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.963Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.963Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.963Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.964Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.964Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.964Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.965Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.965Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.966Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.967Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.967Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.967Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.967Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.967Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.967Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.968Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.968Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.969Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.969Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.969Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.969Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.970Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.970Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.970Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.971Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.971Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.971Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.972Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.972Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.972Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.972Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.972Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.972Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.973Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.973Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.974Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.974Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.974Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.975Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.975Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.975Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.975Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.976Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.976Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.976Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.977Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.977Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.977Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.978Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.978Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.978Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.979Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.979Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.980Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.980Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.980Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.980Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.980Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.980Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.981Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.981Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.982Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.982Z] [DEBUG] [UserList] Mounted
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.982Z] [DEBUG] [Metrics] counter++ component_mount_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.983Z] [INFO] [UserList] Fetching users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.983Z] [INFO] [UserService] Fetching all users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.log
+      [2026-03-31T10:12:15.983Z] [INFO] [ApiClient] → GET /users
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.983Z] [DEBUG] [Metrics] counter++ api_call_total
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.983Z] [DEBUG] [Metrics] gauge active_requests
+
+      at emit (src/utils/logger.js:104:3)
+
+    console.debug
+      [2026-03-31T10:12:15.984Z] [DEBUG] [UserList] Unmounted
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.debug
+      [2026-03-31T10:12:15.984Z] [DEBUG] [Metrics] counter++ component_unmount_total
+
+      at emit (src/utils/logger.js:104:3)
+          at Set.forEach (<anonymous>)
+
+    console.log
+      First render (post-warmup): 2.613ms | Median: 1.999ms | Ratio: 1.31x
+
+      at Object.<anonymous> (src/App.test.js:107:13)
+
+
+Test Suites: 1 failed, 15 passed, 16 total
+Tests:       1 failed, 111 passed, 112 total
+Snapshots:   0 total
+Time:        2.505 s
+Ran all test suites.
+Force exiting Jest: Have you considered using `--detectOpenHandles` to detect async operations that kept running after all tests finished?

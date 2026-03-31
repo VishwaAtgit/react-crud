@@ -1,54 +1,57 @@
-import React, { useEffect, useCallback } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { fetchUsers, userDeleted } from "./usersSlice";
-import StatusMessage from "./StatusMessage";
-import UserRow from "./UserRow";
+import React, { useEffect, useState } from 'react';
+import { useLogger } from '../hooks/useLogger';
+import { getUsers } from '../../services/userService';
+import { increment } from '../../utils/metrics';
 
-export default function UserList() {
-  const dispatch = useDispatch();
-  const { entities: users, loading, error } = useSelector((state) => state.users);
+function UserList() {
+  const { log } = useLogger('UserList');
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
+    let cancelled = false;
 
-  const handleDelete = useCallback(
-    (id) => dispatch(userDeleted({ id })),
-    [dispatch]
-  );
+    async function load() {
+      try {
+        log.info('Fetching users');
+        const data = await getUsers();
+        if (!cancelled) {
+          setUsers(data);
+          log.info('Users loaded', { count: data.length });
+          increment('users_loaded_total', 1);
+        }
+      } catch (err) {
+        if (!cancelled) {
+          setError(err.message);
+          log.error('Failed to load users', { error: err.message });
+          increment('users_load_error_total', 1);
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
+      }
+    }
 
-  const showTable = !loading && !error && users.length > 0;
+    load();
+    return () => { cancelled = true; };
+  }, [log]);
+
+  if (loading) {
+    return <p>Loading…</p>;
+  }
+  if (error) {
+    return <p style={{ color: 'red' }}>Error: {error}</p>;
+  }
 
   return (
-    <div className="container mt-4">
-      <h2>Users</h2>
-      <Link to="/add-user" className="btn btn-success mb-3">
-        Add User
-      </Link>
-
-      <StatusMessage
-        loading={loading}
-        error={error}
-        empty={!loading && !error && users.length === 0}
-      />
-
-      {showTable && (
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user) => (
-              <UserRow key={user.id} user={user} onDelete={handleDelete} />
-            ))}
-          </tbody>
-        </table>
-      )}
-    </div>
+    <ul>
+      {users.map((u) => (
+        <li key={u.id}>{u.name}</li>
+      ))}
+    </ul>
   );
 }
+
+export default UserList;

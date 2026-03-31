@@ -1,0 +1,25 @@
+
+> redux-crud-tutorial@0.1.0 lint
+> eslint src/ --ext .js,.jsx --max-warnings 0
+
+
+/Users/vishwac/personal/react-crud/src/features/users/UserList.jsx
+  31:25  error  Expected { after 'if' condition  curly
+  39:16  error  Expected { after 'if' condition  curly
+  40:14  error  Expected { after 'if' condition  curly
+
+/Users/vishwac/personal/react-crud/src/utils/logger.js
+  88:34  error  Expected { after 'if' condition  curly
+
+/Users/vishwac/personal/react-crud/src/utils/metrics.js
+   53:24  error  Expected { after 'if' condition  curly
+  114:22  error  Expected { after 'if' condition  curly
+
+/Users/vishwac/personal/react-crud/src/utils/security.js
+  27:34  error  Expected { after 'if' condition  curly
+  37:34  error  Expected { after 'if' condition  curly
+  52:42  error  Expected { after 'if' condition  curly
+
+✖ 9 problems (9 errors, 0 warnings)
+  9 errors and 0 warnings potentially fixable with the `--fix` option.
+
