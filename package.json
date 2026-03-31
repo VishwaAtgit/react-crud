@@ -26,13 +26,20 @@
     "validate:diagram": "npx -y @mermaid-js/mermaid-cli -i ai-track-docs/architecture.mmd -o ai-track-docs/architecture.svg && echo '✅ Architecture diagram rendered successfully'",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
     "scan": "bash scripts/scan.sh",
-    "scan:fix": "bash scripts/scan.sh --fix"
+    "scan:fix": "bash scripts/scan.sh --fix",
+    "arch:generate": "node scripts/generate-architecture.js",
+    "arch:diff": "node scripts/architecture-diff.js",
+    "arch": "npm run arch:generate && npm run arch:diff"
   },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!src/index.js",
       "!src/reportWebVitals.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/*.test.{js,jsx}",
+      "!<rootDir>/src/utils/useLogger.test.js"
     ],
     "coverageThreshold": {
       "global": {
