@@ -54,6 +54,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @returns {Promise<Response>}
  * @throws {FetchError}
  */
+  // eslint-disable-next-line consistent-return
 export async function fetchWithRetry(url, options = {}) {
   const {
     timeout = 5000,
@@ -115,5 +116,7 @@ export async function fetchWithRetry(url, options = {}) {
       const delay = backoffBase * Math.pow(2, attempt - 1);
       await sleep(delay);
     }
+
   }
+
 }

@@ -1,0 +1,86 @@
+name: Security Audit & Auto-Fix
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'   # Every Monday 08:00 UTC
+  workflow_dispatch:
+  push:
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  audit-and-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Clean install
+        run: npm ci
+
+      - name: Run audit
+        id: audit
+        run: |
+          npm audit --json > audit-report.json 2>&1 || true
+          VULN_COUNT=$(node -e "
+            try {
+              const r = require('./audit-report.json');
+              console.log(r.metadata?.vulnerabilities?.total ?? 0);
+            } catch { console.log(0); }
+          ")
+          echo "vuln_count=$VULN_COUNT" >> "$GITHUB_OUTPUT"
+
+      - name: Upload audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-report
+          path: audit-report.json
+
+      - name: Auto-fix vulnerabilities
+        if: steps.audit.outputs.vuln_count != '0'
+        run: |
+          cp package-lock.json package-lock.json.bak
+          npm audit fix 2>&1 | tee audit-fix.log || true
+
+      - name: Validate after fix
+        if: steps.audit.outputs.vuln_count != '0'
+        run: |
+          npm run build
+          npm test -- --passWithNoTests --watchAll=false
+
+      - name: Open auto-fix PR
+        if: steps.audit.outputs.vuln_count != '0'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(security): auto-fix npm audit vulnerabilities"
+          branch: security/npm-audit-autofix
+          delete-branch: true
+          title: "🔒 Security: auto-fix npm audit vulnerabilities"
+          body: |
+            ## Automated Security Patch
+
+            **npm audit** found **${{ steps.audit.outputs.vuln_count }}** vulnerabilities.
+
+            This PR applies `npm audit fix`. Review before merging.
+
+            ### Review Checklist
+            - [ ] No unintended major version bumps
+            - [ ] `npm run build` passes
+            - [ ] `npm test` passes
+            - [ ] Manual smoke test on `localhost`
+
+            ### Rollback
+            ```sh
+            git revert --no-edit HEAD
+            npm ci
+            ```

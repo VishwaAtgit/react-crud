@@ -1,0 +1,3 @@
+{"check":"No hardcoded secrets","status":"PASS","detail":"No hardcoded secrets detected in src/"}
+{"check":"security.js API complete","status":"PASS","detail":"escapeHtml, stripTags, assertNoLeakedSecrets all exported"}
+{"check":"Startup secret guard","status":"PASS","detail":"assertNoLeakedSecrets() called in index.js"}

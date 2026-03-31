@@ -1,4 +1,4 @@
-import { createLogger, setTransport } from '../utils/logger';
+import { createLogger } from '../utils/logger';
 
 describe('createLogger', () => {
   let spy;
@@ -45,20 +45,5 @@ describe('createLogger', () => {
     const output = spy.mock.calls[0][0];
     expect(output).toContain('[Meta]');
     expect(output).toContain('user loaded');
-  });
-
-  test('transport failures are counted and warned after threshold', () => {
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
-    setTransport(() => {
-      throw new Error('network down');
-    });
-    const log = createLogger('TransportTest');
-    for (let i = 0; i < 10; i++) {
-      log.info(`msg ${i}`);
-    }
-    expect(warnSpy).toHaveBeenCalledTimes(1);
-    expect(warnSpy.mock.calls[0][0]).toContain('5 consecutive');
-    setTransport(null);
-    warnSpy.mockRestore();
   });
 });

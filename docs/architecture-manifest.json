@@ -1,0 +1,196 @@
+{
+  "generatedAt": "2026-03-31T07:14:22.172Z",
+  "nodeCount": 35,
+  "edgeCount": 38,
+  "nodes": [
+    "App.js",
+    "App.test.js",
+    "features/architecture/generate-architecture.test.js",
+    "features/users/AddUser.jsx",
+    "features/users/EditUser.jsx",
+    "features/users/StatusMessage.jsx",
+    "features/users/StatusMesssage.test.js",
+    "features/users/UserList.jsx",
+    "features/users/UserRow.jsx",
+    "features/users/UserRow.perf.test.js",
+    "features/users/UserRow.test.js",
+    "features/users/usersAPI.contract.js",
+    "features/users/usersAPI.contract.test.js",
+    "features/users/usersAPI.js",
+    "features/users/usersAPI.test.js",
+    "features/users/usersSlice.js",
+    "helpers/__tests__/resilience.test.ts",
+    "helpers/resilience.ts",
+    "hooks/__tests__/global.d.ts",
+    "hooks/__tests__/globals.d.ts",
+    "hooks/__tests__/useObservability.flag.test.ts",
+    "hooks/__tests__/useObservability.test.ts",
+    "hooks/useObservability.example.tsx",
+    "hooks/useObservability.ts",
+    "index.js",
+    "react-app-env.d.ts",
+    "services/api.ts",
+    "setupTests.js",
+    "store.js",
+    "utils/fetchWithRetry.js",
+    "utils/fetchWithRetry.test.js",
+    "utils/logger.js",
+    "utils/logger.test.js",
+    "utils/useLogger.js",
+    "utils/useLogger.test.js"
+  ],
+  "edges": [
+    {
+      "from": "App.js",
+      "to": "features/users/AddUser"
+    },
+    {
+      "from": "App.js",
+      "to": "features/users/EditUser"
+    },
+    {
+      "from": "App.js",
+      "to": "features/users/UserList"
+    },
+    {
+      "from": "App.test.js",
+      "to": "App"
+    },
+    {
+      "from": "features/architecture/generate-architecture.test.js",
+      "to": "features/architecture/App"
+    },
+    {
+      "from": "features/architecture/generate-architecture.test.js",
+      "to": "features/architecture/App"
+    },
+    {
+      "from": "features/architecture/generate-architecture.test.js",
+      "to": "../scripts/generate-architecture"
+    },
+    {
+      "from": "features/architecture/generate-architecture.test.js",
+      "to": "../scripts/architecture-diff"
+    },
+    {
+      "from": "features/architecture/generate-architecture.test.js",
+      "to": "features/architecture/store"
+    },
+    {
+      "from": "features/users/AddUser.jsx",
+      "to": "features/users/usersSlice"
+    },
+    {
+      "from": "features/users/EditUser.jsx",
+      "to": "features/users/usersSlice"
+    },
+    {
+      "from": "features/users/StatusMesssage.test.js",
+      "to": "features/users/StatusMessage.jsx"
+    },
+    {
+      "from": "features/users/UserList.jsx",
+      "to": "features/users/usersSlice"
+    },
+    {
+      "from": "features/users/UserList.jsx",
+      "to": "features/users/StatusMessage"
+    },
+    {
+      "from": "features/users/UserList.jsx",
+      "to": "features/users/UserRow"
+    },
+    {
+      "from": "features/users/UserRow.test.js",
+      "to": "features/users/UserRow.jsx"
+    },
+    {
+      "from": "features/users/usersAPI.contract.test.js",
+      "to": "features/users/usersAPI"
+    },
+    {
+      "from": "features/users/usersAPI.js",
+      "to": "utils/fetchWithRetry"
+    },
+    {
+      "from": "features/users/usersAPI.js",
+      "to": "utils/logger"
+    },
+    {
+      "from": "features/users/usersAPI.test.js",
+      "to": "features/users/usersAPI"
+    },
+    {
+      "from": "features/users/usersAPI.test.js",
+      "to": "utils/fetchWithRetry"
+    },
+    {
+      "from": "features/users/usersSlice.js",
+      "to": "features/users/usersAPI"
+    },
+    {
+      "from": "features/users/usersSlice.js",
+      "to": "utils/logger"
+    },
+    {
+      "from": "hooks/__tests__/useObservability.test.ts",
+      "to": "hooks/useObservability"
+    },
+    {
+      "from": "hooks/useObservability.example.tsx",
+      "to": "hooks/useObservability"
+    },
+    {
+      "from": "hooks/useObservability.ts",
+      "to": "helpers/resilience"
+    },
+    {
+      "from": "index.js",
+      "to": "App"
+    },
+    {
+      "from": "index.js",
+      "to": "features/users/usersSlice"
+    },
+    {
+      "from": "services/api.ts",
+      "to": "helpers/resilience"
+    },
+    {
+      "from": "store.js",
+      "to": "features/users/usersSlice"
+    },
+    {
+      "from": "utils/fetchWithRetry.js",
+      "to": "utils/fetchWithRetry"
+    },
+    {
+      "from": "utils/fetchWithRetry.test.js",
+      "to": "utils/fetchWithRetry"
+    },
+    {
+      "from": "utils/logger.js",
+      "to": "utils/logger"
+    },
+    {
+      "from": "utils/logger.test.js",
+      "to": "utils/logger"
+    },
+    {
+      "from": "utils/useLogger.js",
+      "to": "utils/useLogger"
+    },
+    {
+      "from": "utils/useLogger.js",
+      "to": "utils/logger"
+    },
+    {
+      "from": "utils/useLogger.test.js",
+      "to": "utils/useLogger"
+    },
+    {
+      "from": "utils/useLogger.test.js",
+      "to": "utils/useLogger"
+    }
+  ]
+}

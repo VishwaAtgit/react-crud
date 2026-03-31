@@ -1,0 +1,95 @@
+name: Rollback
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_sha:
+        description: 'Git SHA to roll back to'
+        required: true
+        type: string
+      reason:
+        description: 'Reason for rollback'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Validate target SHA exists
+        run: |
+          if ! git cat-file -t ${{ inputs.target_sha }} > /dev/null 2>&1; then
+            echo "::error::SHA ${{ inputs.target_sha }} not found in repo"
+            exit 1
+          fi
+
+      - name: Create rollback branch
+        run: |
+          BRANCH="rollback/$(date +%Y%m%d-%H%M%S)-${{ inputs.target_sha }}"
+          echo "ROLLBACK_BRANCH=$BRANCH" >> "$GITHUB_ENV"
+          git checkout -b "$BRANCH"
+          git reset --hard ${{ inputs.target_sha }}
+          git push origin "$BRANCH"
+
+      - name: Install & validate at target SHA
+        run: |
+          npm ci
+          npm run build
+          npm test -- --watchAll=false --ci --forceExit
+
+      - name: Record rollback evidence
+        if: always()
+        run: |
+          echo "{
+            \"action\": \"rollback\",
+            \"from_sha\": \"${{ github.sha }}\",
+            \"to_sha\": \"${{ inputs.target_sha }}\",
+            \"reason\": \"${{ inputs.reason }}\",
+            \"triggered_by\": \"${{ github.actor }}\",
+            \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",
+            \"run_id\": \"${{ github.run_id }}\"
+          }" > rollback-evidence.json
+
+      - name: Upload rollback evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rollback-evidence
+          path: rollback-evidence.json
+          retention-days: 90
+
+      - name: Open rollback PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ env.ROLLBACK_BRANCH }}
+          title: '⏪ Rollback to ${{ inputs.target_sha }}'
+          body: |
+            ## Rollback
+
+            | Field | Value |
+            |-------|-------|
+            | **Target SHA** | `${{ inputs.target_sha }}` |
+            | **Reason** | ${{ inputs.reason }} |
+            | **Triggered by** | @${{ github.actor }} |
+            | **CI run** | [#${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) |
+
+            ### Checklist
+            - [ ] Build passes at target SHA
+            - [ ] Tests pass at target SHA
+            - [ ] Smoke tested locally
+            - [ ] Team notified

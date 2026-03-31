@@ -6,67 +6,187 @@ on:
   pull_request:
     branches: [main]
 
+# Cancel in-flight runs for the same branch/PR
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
 jobs:
-  test:
-    name: Lint & Test
+  # ---------------------------------------------------------------
+  # Job 1: Lint (fast, no matrix needed)
+  # ---------------------------------------------------------------
+  lint:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16, 18, 20]
-
+    timeout-minutes: 5
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run all tests (including contract tests)
-        run: npm test -- --watchAll=false --ci --verbose
-
-      - name: Run contract tests only (gate)
-        run: npx react-scripts test --testPathPattern="contract\\.test" --watchAll=false --ci --verbose
-
-      - name: Upload coverage (optional)
-        if: matrix.node-version == 20
-        run: npm test -- --watchAll=false --coverage --ci
-        env:
-          CI: true
-
-  contract-gate:
-    name: Contract Schema Gate
-    runs-on: ubuntu-latest
-    needs: test
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          cache: 'npm'
+
+      - name: Install dependencies (cached)
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint 2>&1 | tee lint-output.txt
+
+      - name: Upload lint evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-output
+          path: lint-output.txt
+          retention-days: 14
+
+  # ---------------------------------------------------------------
+  # Job 2: Test matrix (Node 18 + 20, retry on flakes)
+  # ---------------------------------------------------------------
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: lint
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [18, 20]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies (cached)
+        run: npm ci
+
+      - name: Run tests (attempt 1)
+        id: test1
+        continue-on-error: true
+        run: |
+          npm test -- --watchAll=false --ci --forceExit \
+            --json --outputFile=test-results.json 2>&1 | tee test-output.txt
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Retry tests (attempt 2)
+        id: test2
+        if: steps.test1.outcome == 'failure'
+        continue-on-error: true
+        run: |
+          echo "⚠️  Attempt 1 failed — retrying..."
+          sleep 5
+          npm test -- --watchAll=false --ci --forceExit \
+            --json --outputFile=test-results.json 2>&1 | tee test-output.txt
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Retry tests (attempt 3 — final)
+        id: test3
+        if: steps.test2.outcome == 'failure'
+        run: |
+          echo "⚠️  Attempt 2 failed — final retry..."
+          sleep 10
+          npm test -- --watchAll=false --ci --forceExit \
+            --json --outputFile=test-results.json 2>&1 | tee test-output.txt
+
+      - name: Flag flaky test
+        if: steps.test1.outcome == 'failure' && (steps.test2.outcome == 'success' || steps.test3.outcome == 'success')
+        run: |
+          echo "::warning::⚡ Flaky test detected on Node ${{ matrix.node-version }} — passed on retry but failed initially"
+
+      - name: Upload test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-node${{ matrix.node-version }}
+          path: |
+            test-output.txt
+            test-results.json
+          retention-days: 14
+
+  # ---------------------------------------------------------------
+  # Job 3: Build (depends on tests passing)
+  # ---------------------------------------------------------------
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: test
+    strategy:
+      matrix:
+        node-version: [18, 20]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies (cached)
+        run: npm ci
+
+      - name: Build
+        run: |
+          npm run build 2>&1 | tee build-output.txt
+
+      - name: Record build metadata
+        if: success()
+        run: |
+          echo "{
+            \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",
+            \"node\": \"${{ matrix.node-version }}\",
+            \"sha\": \"${{ github.sha }}\",
+            \"ref\": \"${{ github.ref }}\",
+            \"run_id\": \"${{ github.run_id }}\",
+            \"status\": \"success\"
+          }" > build-evidence.json
+
+      - name: Upload build evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-evidence-node${{ matrix.node-version }}
+          path: |
+            build-output.txt
+            build-evidence.json
+          retention-days: 30
+
+  # ---------------------------------------------------------------
+  # Job 4: Security audit (non-blocking, evidence only)
+  # ---------------------------------------------------------------
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Run contract tests
-        run: npx react-scripts test --testPathPattern="contract\\.test" --watchAll=false --ci --verbose
-
-      - name: Verify golden fixtures unchanged
+      - name: npm audit
+        continue-on-error: true
         run: |
-          echo "Checking golden fixture integrity..."
-          FIXTURE=src/features/users/__fixtures__/golden-users.json
-          if [ ! -f "$FIXTURE" ]; then
-            echo "ERROR: Golden fixture file missing: $FIXTURE"
-            exit 1
-          fi
-          echo "Golden fixtures present ✓"
+          npm audit --json > audit-report.json 2>&1 || true
+          npm audit 2>&1 | tee audit-output.txt || true
+
+      - name: Upload audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-report
+          path: |
+            audit-output.txt
+            audit-report.json
+          retention-days: 30

@@ -1,0 +1,6 @@
+✅  No hardcoded secrets
+   No hardcoded secrets detected in src/
+✅  security.js API complete
+   escapeHtml, stripTags, assertNoLeakedSecrets all exported
+✅  Startup secret guard
+   assertNoLeakedSecrets() called in index.js

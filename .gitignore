@@ -70,3 +70,6 @@ Thumbs.db
 
 # Logs that may contain tokens
 *.log
+
+# architecture diff temp files
+docs/architecture-manifest.prev.json

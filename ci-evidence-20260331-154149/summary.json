@@ -1,0 +1,4 @@
+{"check": "lint", "status": "fail", "duration_s": 15, "file": "lint.txt", "timestamp": "2026-03-31T10:12:04Z"}
+{"check": "test", "status": "fail", "duration_s": 20, "file": "test-attempt-*.txt", "timestamp": "2026-03-31T10:12:24Z"}
+{"check": "build", "status": "fail", "duration_s": 12, "file": "build.txt", "timestamp": "2026-03-31T10:12:36Z"}
+{"check": "audit", "status": "warn", "duration_s": 24, "file": "audit.txt", "timestamp": "2026-03-31T10:13:00Z"}
